@@ -17,11 +17,15 @@ export const getInput = async ({ year, day }) => {
 export const run = async (year, day) => {
   const context = location.host === 'localhost:4000' ? '..' : `${Config.BASE_UI}/src`
   const dayp = String(day).padStart(2, 0)
-  const { part1, part2 } = await import(/* @vite-ignore */ `${context}/${year}/${dayp}/puzzle.js`)
+  const { valid, part1, part2 } = await import(
+    /* @vite-ignore */ `${context}/${year}/${dayp}/puzzle.js`
+  )
   const t = (await import(/* @vite-ignore */ `${context}/${year}/${dayp}/testdata.js`)).default
   const input = await dropIn({
+    placeholderText: `paste input from\n\nhttps://adventofcode.com/${year}/day/${day}/input`,
     apiIn: `/aoc/${year}/day/${day}/input`,
     autoStart: true,
+    valid,
   })
   return await execAll(year, day, part1, part2, t, input)
 }
