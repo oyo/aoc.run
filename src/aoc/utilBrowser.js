@@ -1,5 +1,6 @@
 import { dropIn } from 'drop.that'
 import { execAll } from './util.js'
+import Config from './config.js'
 
 export const getInput = async ({ year, day }) => {
   try {

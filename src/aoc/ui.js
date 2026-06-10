@@ -3,7 +3,7 @@ const domItem = (p) => (p instanceof HTMLElement || p instanceof SVGElement ? p 
 export const isJSON = (o) => {
   try {
     return JSON.parse(o)
-  } catch (_) {
+  } catch {
     return false
   }
 }
@@ -24,7 +24,7 @@ export const append = (n, c) => {
         continue
       }
       throw e
-    } catch (e) {
+    } catch {
       const pre = document.createElement('pre')
       pre.appendChild(document.createTextNode(json(cn) ?? String(cn)))
       n.appendChild(pre)
@@ -43,7 +43,7 @@ export const N = (tag, c, att) => {
 export const remove = (n) => {
   try {
     n.parentElement.removeChild(n)
-  } catch (_) {
+  } catch {
     // ignore
   }
 }

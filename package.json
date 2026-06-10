@@ -1,6 +1,6 @@
 {
   "name": "aoc.run",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A framework to solve, run and visualize Advent of Code puzzles in JavaScript",
   "keywords": [
     "advent of code",

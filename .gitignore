@@ -4,5 +4,6 @@
 yarn-error.log*
 node_modules
 dist
+test
 .DS_Store
 .vscode
