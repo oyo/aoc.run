@@ -19,8 +19,8 @@ importers:
   .:
     dependencies:
       drop.that:
-        specifier: ^0.0.6
-        version: 0.0.6
+        specifier: ^0.0.7
+        version: 0.0.7
     devDependencies:
       glob:
         specifier: ^13.0.6
@@ -496,8 +496,8 @@ packages:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
 
-  drop.that@0.0.6:
-    resolution: {integrity: sha512-JJatKKtcIne3BKeev6dvJA1FRrnPr3DCNBgmoXYA2YcIb7oa+B5hhNplB3HHBfcpUw/WOtGFh/A88ob86mYAVg==}
+  drop.that@0.0.7:
+    resolution: {integrity: sha512-iKkSjTLjZ2jgsrTzZIGiSjsioV0mvhe4GWcZMflLlC1Gj6H9uvhWxW0G09LkdzGZVifyN/4Sj8bsit7TbdTrfg==}
 
   es-module-lexer@1.7.0:
     resolution: {integrity: sha512-jEQoCwk8hyb2AZziIOLhDqpm5+2ww5uIE6lkO/6jcOCusfk6LhMHpXXfBLXTZ7Ydyt0j4VoUQv6uGNYbdW+kBA==}
@@ -957,7 +957,7 @@ snapshots:
 
   detect-libc@2.1.2: {}
 
-  drop.that@0.0.6: {}
+  drop.that@0.0.7: {}
 
   es-module-lexer@1.7.0: {}
 
