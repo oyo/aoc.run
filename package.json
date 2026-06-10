@@ -1,0 +1,38 @@
+{
+  "name": "aoc.run",
+  "version": "0.0.1",
+  "description": "A framework to solve, run and visualize Advent of Code puzzles in JavaScript",
+  "keywords": [
+    "advent of code",
+    "framework",
+    "javascript",
+    "puzzles",
+    "visualization"
+  ],
+  "license": "MIT",
+  "author": "Martin Rohrmeier <roryphant@gmail.com> (oyo)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oyo/aoc.run.git"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vp dev",
+    "build": "tsc && vp build",
+    "preview": "vp preview",
+    "prepare": "vp config",
+    "solve": "node src/aoc/solve",
+    "meta": "node src/aoc/meta > public/data/meta.json",
+    "source": "cp -R ./src ./dist/"
+  },
+  "dependencies": {
+    "drop.that": "^0.0.6"
+  },
+  "devDependencies": {
+    "glob": "^13.0.6",
+    "typescript": "~6.0.3",
+    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.24",
+    "vite-plus": "catalog:"
+  },
+  "packageManager": "pnpm@11.5.1"
+}

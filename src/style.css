@@ -1,0 +1,33 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0f0f23;
+  color: white;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 2vh;
+}
+
+a {
+  text-decoration: none;
+  color: #009900;
+}
+
+a:hover {
+  color: #00ff00;
+}
+
+ul {
+  list-style-type: '* ';
+}
+
+#app {
+  width: 90%;
+}

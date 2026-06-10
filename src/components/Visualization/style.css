@@ -1,0 +1,25 @@
+.visual {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0f0f23;
+  z-index: 999;
+}
+
+.visual button {
+  cursor: pointer;
+  color: gray;
+  border: none;
+  background: none;
+  position: fixed;
+  padding-inline: 0;
+  padding-block: 0;
+  right: 0;
+  top: 0;
+  width: 4vh;
+  height: 4vh;
+  font-size: 4vh;
+  z-index: 1;
+}

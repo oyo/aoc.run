@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <title>AoC 2020 day 17</title>
+    <link rel="icon" href="../../img/favicon.svg" />
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+
+  <body>
+    <script type="module">
+      import readInput from '../../lib/aoc/readInput.js'
+      import { ConwayCubes, Viewer, VoxelScene } from '../../lib/voxli/index.js'
+      class ConwayScene extends VoxelScene {
+        counter = 35
+        constructor(seed) {
+          super()
+          this.game = new ConwayCubes(seed)
+          this.data = this.game.getData()
+          setInterval(this.step.bind(this), 1000)
+        }
+        step() {
+          if (--this.counter > 0) this.game.step()
+          else {
+            this.counter = 35
+            this.game.init()
+          }
+          this.data = this.game.getData()
+          this.updateModel()
+        }
+      }
+      new Viewer(new ConwayScene((await readInput()).split('\n').reverse())).input.setMove({
+        u: -28,
+        v: 6,
+        w: -6,
+      })
+    </script>
+  </body>
+</html>

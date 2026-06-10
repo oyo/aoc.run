@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <title>AoC 2025 day 1</title>
+    <link rel="icon" href="../../img/favicon.svg" />
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+
+  <body>
+    <script type="module">
+      import readInput from '../../lib/aoc/readInput.js'
+      import showOutput from '../../lib/aoc/showOutput.js'
+      import puzzleCPU from './puzzleCPU.js'
+      import puzzleGPU from './puzzleGPU.js'
+      const input = await readInput()
+      showOutput([
+        ['CPU', await puzzleCPU.exec(input)],
+        ['GPU', await puzzleGPU.exec(input)],
+      ])
+    </script>
+  </body>
+</html>

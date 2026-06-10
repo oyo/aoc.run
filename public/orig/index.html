@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <title>AoC visualizations</title>
+    <link rel="icon" href="img/favicon.svg" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      ul {
+        line-height: 1em;
+      }
+    </style>
+  </head>
+
+  <body class="toc">
+    <h2>Advent of Code visualizations</h2>
+    <p style="color: lightgray">Selected examples from my Advent of Code solutions</p>
+    <p>
+      <a href="https://oyo.github.io/">[Home]</a>
+      <a href="https://github.com/oyo/aoc/">[Source]</a>
+      <a href="https://adventofcode.com/">[AoC]</a>
+    </p>
+    <ul></ul>
+    <p style="color: gray; max-width: 700px; font-size: 0.58em">
+      Since we are
+      <a href="https://www.reddit.com/r/adventofcode/wiki/faqs/copyright/inputs/">not supposed</a>
+      to share input files,
+      <a href="https://adventofcode.com/2025/auth/login" target="aoc">log in to Advent of Code</a>
+      and copy your personal input from the [input] link. Then open the following link and paste
+      your input there.
+    </p>
+    <script>
+      const ul = document.getElementsByTagName('ul')[0]
+      const createItem = (YEAR, DAY, VIZ, NAME) => {
+        const li = document.createElement('li')
+        li.style = 'color: lightgray; margin-bottom: 1vh;'
+        li.innerHTML = `<a style="white-space: nowrap" href="https://adventofcode.com/${YEAR}/day/${DAY}" target="aoc">[${YEAR} ${String(DAY).padStart(2, '\u00A0')}: ${NAME.padEnd(20, '\u00A0')}]</a>
+<span style="white-space: nowrap">
+<a href="https://adventofcode.com/${YEAR}/day/${DAY}/input" target="aoc">[input]</a>
+<span style="font-size: 1em; margin-right: .125em; position: relative; top: 0; left: .2em">
+□<span style="position: absolute; top: .3em; left: -.2em">■</span></span>
+→
+<span style="font-size: 1.4em; position: relative; top: .15em; ">
+□<span style="font-size: 0.4em; position: absolute; top: .8em; left: .45em">■</span></span>
+<a href="${YEAR}/${String(DAY).padStart(2, 0)}/index.html">[${VIZ ? 'visual' : 'solve'}]</a></span>`
+        return li
+      }
+      ;[
+        [2025, 11, true, 'Reactor'],
+        [2025, 9, true, 'Movie Theater'],
+        [2025, 8, true, 'Playground'],
+        [2025, 4, true, 'Printing Department'],
+        [2025, 1, false, 'Secret Entrance'],
+        [2022, 14, true, 'Regolith Reservoir'],
+        [2022, 9, true, 'Rope Bridge'],
+        [2022, 8, true, 'Treetop Tree House'],
+        [2021, 20, true, 'Trench Map'],
+        [2021, 11, true, 'Dumbo Octopus'],
+        [2021, 9, true, 'Smoke Basin'],
+        [2020, 17, true, 'Conway Cubes'],
+        [2020, 11, true, 'Seating System'],
+      ]
+        .map((puzzle) => createItem(...puzzle))
+        .forEach((element) => ul.append(element))
+    </script>
+  </body>
+</html>

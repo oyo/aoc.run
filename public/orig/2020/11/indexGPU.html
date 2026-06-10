@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <title>AoC 2020 day 11</title>
+    <link rel="icon" href="../../img/favicon.svg" />
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+
+  <body>
+    <script type="module">
+      import readInput from '../../lib/aoc/readInput.js'
+      import showOutput from '../../lib/aoc/showOutput.js'
+      import puzzleCPU from './puzzleCPU.js'
+      import visualGPU from './visualGPU.js'
+      const input = await readInput()
+      visualGPU(input)
+      showOutput([['CPU', await puzzleCPU.exec(input)]])
+    </script>
+  </body>
+</html>
