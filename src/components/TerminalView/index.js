@@ -5,6 +5,7 @@ import { submitAnswer } from '../../aoc/util.js'
 import { run, test } from '../../aoc/utilBrowser.js'
 import { WaitCommand } from './WaitCommand.js'
 import { VisualView } from '../Visualization/index.js'
+import meta from '@/data/meta.json' assert { type: 'json' }
 
 const USAGE = `available:
 
@@ -21,9 +22,6 @@ const USAGE = `available:
 export class TerminalView extends Viewable {
   constructor() {
     super()
-    this.meta = fetch('data/meta.json')
-      .then((response) => response.json())
-      .then(((meta) => (this.meta = meta)).bind(this))
     this.history = []
     this.histPtr = 0
     this.view = N(
@@ -94,17 +92,12 @@ export class TerminalView extends Viewable {
 
   async viz(year, day) {
     const sy = String(year)
-    if (
-      !year ||
-      !day ||
-      !Object.keys(this.meta.visual).includes(sy) ||
-      !this.meta.visual[sy].includes(day)
-    ) {
+    if (!year || !day || !Object.keys(meta.visual).includes(sy) || !meta.visual[sy].includes(day)) {
       this.print(
-        `viz <year> <day>\n\navailable:\n${Object.keys(this.meta.visual)
+        `viz <year> <day>\n\navailable:\n${Object.keys(meta.visual)
           .sort((a, b) => a - b)
           .map((y) =>
-            this.meta.visual[y]
+            meta.visual[y]
               .map((d) => `  ${y} ${d}`)
               .flat()
               .join('\n'),
@@ -122,11 +115,11 @@ export class TerminalView extends Viewable {
   async test(year, day) {
     const sy = String(year)
     if (
-      (year && !Object.keys(this.meta.puzzle).includes(sy)) ||
-      (day && !this.meta.puzzle[sy].includes(day))
+      (year && !Object.keys(meta.puzzle).includes(sy)) ||
+      (day && !meta.puzzle[sy].includes(day))
     ) {
       this.print(
-        `test <year> [<day>]\n\navailable:\n${Object.keys(this.meta.visual)
+        `test <year> [<day>]\n\navailable:\n${Object.keys(meta.visual)
           .sort((a, b) => a - b)
           .map((y) => `  ${y}`)
           .join('\n')}`,
@@ -141,8 +134,8 @@ export class TerminalView extends Viewable {
       this.print([`${year}-${String(day).padStart(2, 0)}`, ...prnt(r.part1), ...prnt(r.part2)])
       return
     }
-    const days = (year ? [year] : Object.keys(this.meta.puzzle).sort((a, b) => a - b))
-      .map((y) => this.meta.puzzle[y].map((d) => [y, d]))
+    const days = (year ? [year] : Object.keys(meta.puzzle).sort((a, b) => a - b))
+      .map((y) => meta.puzzle[y].map((d) => [y, d]))
       .flat()
     for (let yd of days) await this.test(yd[0], yd[1])
   }
@@ -150,11 +143,11 @@ export class TerminalView extends Viewable {
   async solve(year, day, submit) {
     const sy = String(year)
     if (
-      (year && !Object.keys(this.meta.puzzle).includes(sy)) ||
-      (day && !this.meta.puzzle[sy].includes(day))
+      (year && !Object.keys(meta.puzzle).includes(sy)) ||
+      (day && !meta.puzzle[sy].includes(day))
     ) {
       this.print(
-        `run <year> [<day>]\n\navailable:\n${Object.keys(this.meta.visual)
+        `run <year> [<day>]\n\navailable:\n${Object.keys(meta.visual)
           .sort((a, b) => a - b)
           .map((y) => `  ${y}`)
           .join('\n')}`,
@@ -181,8 +174,8 @@ export class TerminalView extends Viewable {
       }
       return
     }
-    const days = (year ? [year] : Object.keys(this.meta.puzzle).sort((a, b) => a - b))
-      .map((y) => this.meta.puzzle[y].map((d) => [y, d]))
+    const days = (year ? [year] : Object.keys(meta.puzzle).sort((a, b) => a - b))
+      .map((y) => meta.puzzle[y].map((d) => [y, d]))
       .flat()
     for (let yd of days) await this.solve(yd[0], yd[1])
   }

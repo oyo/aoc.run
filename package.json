@@ -1,6 +1,6 @@
 {
   "name": "aoc.run",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A framework to solve, run and visualize Advent of Code puzzles in JavaScript",
   "keywords": [
     "advent of code",
@@ -22,7 +22,7 @@
     "preview": "vp preview",
     "prepare": "vp config",
     "solve": "node src/aoc/solve",
-    "meta": "node src/aoc/meta > public/data/meta.json",
+    "meta": "node src/aoc/meta > src/data/meta.json",
     "source": "cp -R ./src ./dist/"
   },
   "dependencies": {
